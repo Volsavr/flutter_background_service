@@ -268,7 +268,7 @@ public class BackgroundService extends Service implements MethodChannel.MethodCa
                 if (arg.has("title")) {
                     notificationTitle = arg.getString("title");
                     notificationContent = arg.getString("content");
-                    notificationSilent = arg.getBool("isSilent");
+                    notificationSilent = arg.getBoolean("isSilent");
                     updateNotificationInfo();
                     result.success(true);
                 }
