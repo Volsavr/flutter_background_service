@@ -56,7 +56,7 @@ class AndroidConfiguration {
   /// defaults to "Preparing"
   final String initialNotificationContent;
   final String initialNotificationTitle;
-  final String initialNotificationSilent;
+  final bool initialNotificationSilent;
 
   /// use custom notification channel id
   /// you must to create the notification channel before you run configure() method.
