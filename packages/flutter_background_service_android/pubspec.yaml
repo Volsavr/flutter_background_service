@@ -11,7 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_background_service_platform_interface: ^5.1.2
+  flutter_background_service_platform_interface: #^5.1.2
+    git:
+      url: https://github.com/Volsavr/flutter_background_service.git
+      ref: silent_notification
+      path: packages/flutter_background_service_platform_interface
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
