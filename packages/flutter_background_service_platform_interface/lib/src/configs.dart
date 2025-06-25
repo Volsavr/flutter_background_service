@@ -56,6 +56,7 @@ class AndroidConfiguration {
   /// defaults to "Preparing"
   final String initialNotificationContent;
   final String initialNotificationTitle;
+  final String initialNotificationSilent;
 
   /// use custom notification channel id
   /// you must to create the notification channel before you run configure() method.
@@ -74,6 +75,7 @@ class AndroidConfiguration {
     required this.isForegroundMode,
     this.initialNotificationContent = 'Preparing',
     this.initialNotificationTitle = 'Background Service',
+    this.initialNotificationSilent = false,
     this.notificationChannelId,
     this.foregroundServiceNotificationId = 112233,
     this.foregroundServiceTypes,

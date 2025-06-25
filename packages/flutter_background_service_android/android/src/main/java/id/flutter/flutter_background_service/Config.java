@@ -62,6 +62,14 @@ public class Config {
         pref.edit().putString("initial_notification_content", value).apply();
     }
 
+    public boolean getInitialNotificationSilent() {
+        return pref.getBoolean("initial_notification_silent", false);
+    }
+
+    public void setInitialNotificationSilent(boolean value) {
+        pref.edit().putBoolean("initial_notification_silent", value).apply();
+    }
+
     public String getNotificationChannelId() {
         return pref.getString("notification_channel_id", null);
     }

@@ -49,6 +49,7 @@ public class BackgroundService extends Service implements MethodChannel.MethodCa
     private boolean isManuallyStopped = false;
     private String notificationTitle;
     private String notificationContent;
+    private boolean notificationSilent;
     private String notificationChannelId;
     private int notificationId;
     private String configForegroundTypes;
@@ -98,6 +99,7 @@ public class BackgroundService extends Service implements MethodChannel.MethodCa
         notificationContent = config.getInitialNotificationContent();
         notificationId = config.getForegroundNotificationId();
         configForegroundTypes = config.getForegroundServiceTypes();
+        notificationSilent = config.getInitialNotificationSilent();
         updateNotificationInfo();
         onStartCommand(null, -1, -1);
     }
@@ -160,7 +162,7 @@ public class BackgroundService extends Service implements MethodChannel.MethodCa
                     .setSmallIcon(R.drawable.ic_bg_service_small)
                     .setAutoCancel(true)
                     .setOngoing(true)
-                    .setSilent(true)
+                    .setSilent(notificationSilent)
                     .setContentTitle(notificationTitle)
                     .setContentText(notificationContent)
                     .setContentIntent(pi);
@@ -266,6 +268,7 @@ public class BackgroundService extends Service implements MethodChannel.MethodCa
                 if (arg.has("title")) {
                     notificationTitle = arg.getString("title");
                     notificationContent = arg.getString("content");
+                    notificationSilent = arg.getBool("isSilent");
                     updateNotificationInfo();
                     result.success(true);
                 }
